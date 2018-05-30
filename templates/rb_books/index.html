@@ -1,0 +1,251 @@
+{%extends 'base.html'%}
+{%block head%}
+<script type="text/javascript" src="/static/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/static/js/slide.js"></script>
+{#<script type="text/javascript" src="/static/js/slideshow.js"></script>#}
+
+
+
+{%endblock head%}
+
+
+
+
+{%block body%}
+<!--navbar导航条-->
+	<div class="navbar_con">
+		<div class="navbar">
+			<h1 class="fl">全部书籍分类</h1>
+			<ul class="navlist fl">
+				<li><a href="/">首页</a></li>
+				<li class="interval">|</li>
+				<li><a href="/cart/">我的书架</a></li>
+				<li class="interval">|</li>
+				<li><a href="/user/info/">用户中心</a></li>
+				<li class="interval">|</li>
+            <li><a href="/newsbooks/">新书推荐</a></li>
+            <li class="interval">|</li>
+            <li><a href="/hotlists/1">热度排行</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="center_con clearfix">
+		<ul class="subnav fl">
+			<li><a href="#model01" class="lishi">历史传记</a></li>
+			<li><a href="#model02" class="wuxia">武侠小说</a></li>
+			<li><a href="#model03" class="chenggong">成功励志</a></li>
+			<li><a href="#model04" class="wenxue">文学艺术</a></li>
+			<li><a href="#model05" class="keji">科技创新</a></li>
+			<li><a href="#model06" class="jisuanji">计算机</a></li>
+		</ul>
+		<div class="slide fl">
+			<ul class="slide_pics">
+				<li><a href="/12/"><img src="/static/images/slide.png" width="760px" height="270px" alt="幻灯片"></a></li>
+				<li><a href="/13/"><img src="/static/images/slide01.png" width="760px" height="270px" alt="幻灯片"></a></li>
+				<li><a href="/14/"><img src="/static/images/slide02.png" width="760px" height="270px" alt="幻灯片"></a></li>
+				<li><a href="/15/"><img src="/static/images/slide03.png" width="760px" height="270px" alt="幻灯片" ></a></li>
+			</ul>
+			<div class="prev"></div>
+			<div class="next"></div>
+			<ul class="points"></ul>
+		</div>
+		<div class="adv fl">
+			<a href="#"><img title="广告栏" src="/static/images/gg4.png"  width="240" height="135" ></a>
+			<a href="#"><img title="广告栏" src="/static/images/gg1.png"  width="240" height="135" ></a>
+		</div>
+	</div>
+
+	<div class="list_model">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model01">历史传记</h3>
+			<div class="subtitle fl">
+				<span>|</span>
+				{%for b in lishi2%}
+				<a href="/{{b.id}}">{{b.btitle|slice:'10'}}</a>
+				{%endfor%}
+			</div>
+			<a href="/list1_1_1" class="books_more fr" id="lishi_more">查看更多 ></a>
+		</div>
+
+		<div class="books_con clearfix">
+			<div class="books_banner fl"><img src="/static/images/lishi.png"  width="200" height="300"></div>
+			<ul class="books_list fl">
+				{%for b in lishi%}
+				<li>
+					<!--images/books/books003.jpg-->
+					<h4><a href="/{{b.id}}">{{b.btitle|slice:'10'}}</a></h4>
+					<a href="/{{b.id}}"><img src="/static/{{b.bpic}}"></a>
+
+				</li>
+				{%endfor%}
+			</ul>
+		</div>
+	</div>
+
+	<div class="list_model">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model02">武侠小说</h3>
+			<div class="subtitle fl">
+				<span>|</span>
+				{%for b in wuxia2%}
+				<a href="/{{b.id}}">{{b.btitle|slice:'10'}}...</a>
+				{%endfor%}
+			</div>
+			<a href="/list2_1_1" class="books_more fr">查看更多 ></a>
+		</div>
+
+		<div class="books_con clearfix">
+			<div class="books_banner fl"><img src="/static/images/wuxia.jpg" width="200" height="300"></div>
+			<ul class="books_list fl">
+				{%for b in wuxia%}
+				<li>
+					<h4><a href="/{{b.id}}">{{b.btitle|slice:'10'}}...</a></h4>
+					<a href="/{{b.id}}"><img src="/static/{{b.bpic}}"></a>
+
+				</li>
+				{%endfor%}
+			</ul>
+		</div>
+	</div>
+
+	<div class="list_model">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model03">成功励志</h3>
+			<div class="subtitle fl">
+				<span>|</span>
+				{%for b in chenggong%}
+				<a href="/{{b.id}}">{{b.btitle|slice:'10'}}...</a>
+				{%endfor%}
+			</div>
+			<a href="/list3_1_1" class="books_more fr">查看更多 ></a>
+		</div>
+
+		<div class="books_con clearfix">
+			<div class="books_banner fl"><img src="/static/images/chenggong.png" width="200" height="300"></div>
+			<ul class="books_list fl">
+				{%for b in chenggong2%}
+				<li>
+					<h4><a href="/{{b.id}}">{{b.btitle|slice:'10'}}</a></h4>
+					<a href="/{{b.id}}"><img src="/static/{{b.bpic}}"></a>
+
+
+
+				</li>
+				{%endfor%}
+			</ul>
+		</div>
+	</div>
+
+	<div class="list_model">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model04">文学艺术</h3>
+			<div class="subtitle fl">
+				<span>|</span>
+				{%for b in wenxue%}
+				<a href="/{{b.id}}">{{b.btitle|slice:'10'}}...</a>
+				{%endfor%}
+			</div>
+			<a href="/list4_1_1" class="books_more fr">查看更多 ></a>
+		</div>
+
+		<div class="books_con clearfix">
+			<div class="books_banner fl"><img src="/static/images/wenxue.png" width="200" height="300"></div>
+			<ul class="books_list fl">
+				{%for b in wenxue2%}
+				<li>
+					<h4><a href="/{{b.id}}">{{b.btitle|slice:'10'}}...</a></h4>
+					<a href="/{{b.id}}"><img src="/static/{{b.bpic}}"></a>
+
+				</li>
+				{%endfor%}
+			</ul>
+		</div>
+	</div>
+
+	<div class="list_model">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model05">科技创新</h3>
+			<div class="subtitle fl">
+				<span>|</span>
+				{%for b in keji%}
+				<a href="/{{b.id}}">{{b.btitle|slice:'10'}}...</a>
+				{%endfor%}
+			</div>
+			<a href="/list5_1_1" class="books_more fr">查看更多 ></a>
+		</div>
+
+		<div class="books_con clearfix">
+			<div class="books_banner fl"><img src="/static/images/keji.png" width="200" height="300"></div>
+			<ul class="books_list fl">
+				{%for b in keji2%}
+				<li>
+					<h4><a href="/{{b.id}}">{{b.btitle|slice:'10'}}...</a></h4>
+					<a href="/{{b.id}}"><img src="/static/{{b.bpic}}"></a>
+
+				</li>
+				{%endfor%}
+			</ul>
+		</div>
+	</div>
+
+	<div class="list_model">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model06">计算机</h3>
+			<div class="subtitle fl">
+				<span>|</span>
+				{%for b in jisuanji%}
+				<a href="/{{b.id}}">{{b.btitle|slice:'10'}}...</a>
+				{%endfor%}
+			</div>
+			<a href="/list6_1_1" class="books_more fr">查看更多 ></a>
+		</div>
+
+		<div class="books_con clearfix">
+			<div class="books_banner fl"><img src="/static/images/jisuanji.png" width="200" height="295"></div>
+			<ul class="books_list fl">
+				{%for b in jisuanji2%}
+				<li>
+
+					<a href="/{{b.id}}"><img src="/static/{{b.bpic}}"></a>
+					<h4><a href="/{{b.id}}">{{b.btitle|slice:'10'}}...</a></h4>
+
+				</li>
+				{%endfor%}
+			</ul>
+		</div>
+	</div>
+{%endblock body%}
+
+
+{%block foot%}
+<div class="footer">
+		<div class="foot_link">
+			<a href="#">关于我们</a>
+			<span>|</span>
+			<a href="#">联系我们</a>
+			<span>|</span>
+			<a href="#">招聘人才</a>
+			<span>|</span>
+			<a href="#">友情链接</a>
+		</div>
+		<p>CopyRibht © 2018 读书片刻 All Ribhts Reserved</p>
+		<p>电话：150-****282    豫ICP备*******7号</p>
+	</div>
+	<!--<script type="text/javascript" src="js/slideshow.js"></script>-->
+	<!--<script type="text/javascript">-->
+		<!--BCSlideshow('focuspic');-->
+		<!--var oLishi = document.betElementById('lishi_more');-->
+		<!--var oShownum = document.betElementById('show_count');-->
+		<!--var hasorder = localStorabe.betItem('order_wuxia');-->
+		<!--if(hasorder)-->
+		<!--{-->
+			<!--oShownum.innerHTML = '2';-->
+		<!--}-->
+		<!--oFruit.onclick = function(){-->
+			<!--window.location.href = 'list.html';-->
+		<!--}-->
+	<!--</script>-->
+</body>
+</html>
+{%endblock foot%}

@@ -1,0 +1,52 @@
+{%extends 'base.html'%}
+{%block head%}
+<script>
+/* 删除*/
+   function cart_del(cart_id) {
+       del = confirm('确定要删除吗？');
+       if (del) {
+           $.get('/cart/delete' + cart_id + '/', function (data) {
+               if (data.ok == 1) {
+                   $('ul').remove('#' + cart_id);
+               }
+           });
+       }
+       window.location.reload();
+   }
+
+</script>
+
+
+
+{%endblock head%}
+
+
+{%block body%}
+	<div class="total_count">全部书籍<em class="total_count1">{{ len }}</em>本</div>
+	<ul class="cart_list_th clearfix">
+		<li class="col01">书籍名称</li>
+		<li class="col02">书籍类别</li>
+        <li class="col03">操作</li>
+	</ul>
+#<form action="/order/" method="GET">
+    {%for cart in carts%}
+
+	<ul class="cart_list_td clearfix" id="{{cart.id}}">
+
+
+        <li class="col02"><a href="/{{cart.books.id}}"><img src="/static/{{cart.books.bpic}}"></a></li>
+
+        <li class="col03"><a href="/{{cart.books.id}}">{{cart.books.btitle}}</a><br></li>
+		<li class="col04">{{cart.books.btype}}</li>
+
+
+
+		<li class="col05"><a href="javascript:cart_del({{cart.id}});">删除</a></li>
+		<!--class="del_book-->
+	</ul>
+
+
+    {%endfor%}
+
+</form>
+{%endblock body%}

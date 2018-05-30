@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="navbar_con">
+    <div class="navbar clearfix">
+        <div class="subnav_con fl">
+            <h1>全部书籍分类</h1>
+            <span></span>
+            <ul class="subnav">
+                <li><a href="/list1_1_1/" class="lishi">历史传记</a></li>
+                <li><a href="/list2_1_1/" class="wuxia">武侠小说</a></li>
+                <li><a href="/list3_1_1/" class="chenbbonb">成功励志</a></li>
+                <li><a href="/list4_1_1/" class="wenxue">文学艺术</a></li>
+                <li><a href="/list5_1_1/" class="keji">科技创新</a></li>
+                <li><a href="/list6_1_1/" class="jisuanji">计算机</a></li>
+            </ul>
+        </div>
+        <ul class="navlist fl">
+            <li><a href="/">首页</a></li>
+            <li class="interval">|</li>
+            <li><a href="">我的书架</a></li>
+            <li class="interval">|</li>
+            <li><a href="/user/info/">用户中心</a></li>
+            <li class="interval">|</li>
+            <li><a href="/newsbooks/">新书推荐</a></li>
+            <li class="interval">|</li>
+            <li><a href="/hotlists/1">热度排行</a></li>
+        </ul>
+    </div>
+</div>
+{% if list == 1 %}
+<div class="breadcrumb">
+    <a href="/">全部分类</a>
+    <span>></span>
+    <a href="/list{{booktype.id}}_1_1/">{{booktype.ttitle}}</a>
+    {% if isDetail %}
+    <span>></span>
+    <a href="">书籍详情</a>
+    {% endif %}
+</div>
+{% endif %}
+
+
+
+{% block list %}
+
+
+<div class="mains">
+    <div class="lower">
+    <div class="sort_bar">
+       <a href="#">   本  站  最  新  书  籍  推  荐  :</a>
+    </div>
+<ul class="books_type_list clearfix">
+    {%for b in newbook%}
+    <li >
+        <a href="/{{b.id}}"><img src="/static/{{b.bpic}}"></a>
+        <h4><a href="/{{b.id}}">{{b.btitle}}</a></h4>
+    </li>
+    {%endfor%}
+</ul>
+    <div class="footer">
+		<div class="foot_link">
+			<a href="#">关于我们</a>
+			<span>|</span>
+			<a href="#">联系我们</a>
+			<span>|</span>
+			<a href="#">招聘人才</a>
+			<span>|</span>
+			<a href="#">友情链接</a>
+		</div>
+		<p>CopyRibht © 2018 读书片刻 All Ribhts Reserved</p>
+		<p>电话：150-****282    豫ICP备*******7号</p>
+	</div>
+    </div>
+
+</div>
+{% endblock list %}
+
+{% endblock body %}
+
+
+{%block foot%}
+
+
+</body>
+</html>
+{%endblock foot%}
+
+
+
+
+
+
+
+
+
+
+
+

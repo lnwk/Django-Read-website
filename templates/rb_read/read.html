@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+
+
+{%block body%}
+<!--<img src="/static/images/tubiao3.png" class="tbiao">-->
+<div class="Main_list">
+
+    <h1 class="Title">{{r.btitle}}</h1>
+    <dl class="Volume">
+       <dt class="zhang">
+            <span style="color: #221715">本书所有章节</span>
+           <!--<img src="/static/images/tubiao4.png" class="tbiao">-->
+        </dt>
+    <dd class="jie" style="display: block;">
+    {%for r in rchapterList%}
+
+      <a class="zhangjie" target="_blank" href="/read/{{id}}/page={{r.zj_id}}">{{r.rchapter|slice:'15'}}</a>
+
+    {%endfor%}
+    </dd>
+</dl>
+</div>
+
+{%endblock body%}

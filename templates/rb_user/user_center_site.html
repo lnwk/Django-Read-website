@@ -1,0 +1,37 @@
+{%extends 'rb_user/base.html'%}
+
+{%block right_content %}
+		<div class="right_content clearfix">
+				<h3 class="common_title2">您的意见</h3>
+				<div class="site_con">
+					<h2>感谢您在使用过程中发现不足并向我们反馈，您的反馈意见是最宝贵的资源，使我们进步。</h2>
+				</div>
+				<h3 class="common_title2">编辑意见</h3>
+				<div class="site_con">
+					<form action="/user/site/" method="post">
+						{%csrf_token%}
+						<div class="form_group">
+							<label>您的姓名：</label>
+							<input type="text" name="oname" value="">
+						</div>
+						<div class="form_group form_group2">
+							<label>您的意见：</label>
+							<textarea class="site_area" name="oyijian" value=""></textarea>
+						</div>
+						<!--<div class="form_group">-->
+							<!--<label>邮编：</label>-->
+							<!--<input type="text" name="uyoubian" value="{{user.uyoubian}}">-->
+						<!--</div>-->
+						<div class="form_group">
+							<label>手机：</label>
+							<input type="text" name="ophone" value="">
+						</div>
+
+						<input type="submit" name="" value="提交" class="info_submit"  onclick=alert('提交成功！')>
+					</form>
+				</div>
+		</div>
+	</div>
+
+
+{%endblock right_content %}

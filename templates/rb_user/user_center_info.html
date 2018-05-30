@@ -1,0 +1,32 @@
+{%extends 'rb_user/base.html'%}
+
+
+
+{% block right_content %}
+		<div class="right_content clearfix">
+				<div class="info_con clearfix">
+				<h3 class="common_title2">基本信息</h3>
+						<ul class="user_info_list">
+							<li><span>用户名：</span>{{user_name}}</li>
+							<li><span>联系方式：</span>{{user_email}}</li>
+									
+						</ul>
+				</div>
+				
+				<h3 class="common_title2">最近浏览</h3>
+				<div class="has_view_list">
+					<ul class="books_type_list clearfix">
+
+				{%for  books  in books_list %}
+				<li>
+					<a href="/{{books.id}}"><img src="/static/{{books.bpic}}"></a>
+					<h4><a href="/{{books.id}}">{{books.btitle}}</a></h4>
+
+				</li>
+				{%endfor%}
+			        </ul>
+		        </div>
+		</div>
+
+
+{% endblock right_content %}

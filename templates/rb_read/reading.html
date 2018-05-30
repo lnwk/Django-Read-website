@@ -1,0 +1,49 @@
+{%extends 'base.html'%}
+
+{%block body%}
+<div class="readArea">
+    {%for r in kneirong%}
+       <h1 class="mingzi">{{r.rchapter}}</h1>
+    {%endfor%}
+
+         <ul  class="fenzhang">
+
+             {% if kneirong.has_previous %}
+             <a href="/read/{{id}}/page={{kneirong.previous_page_number}}" class="shangxiazhang1"><<上一章</a>
+             {% endif %}
+
+             <a href=/read/{{id}} class="shangxiazhang1" >返回目录</a>
+
+             {% if kneirong.has_next %}
+             <a href="/read/{{id}}/page={{kneirong.next_page_number}}" class="shangxiazhang1">下一章>></a>
+             {% endif %}
+         </ul>
+
+<div class="p">
+    {%for r in kneirong%}
+
+
+        <p>{{r.rneirong|safe}}</p>
+
+    {%endfor%}
+
+</div>
+
+
+     <div class="dushufenzhang">
+         <ul class="fenzhang">
+
+             {% if kneirong.has_previous %}
+             <a href="/read/{{id}}/page={{kneirong.previous_page_number}}" class="shangxiazhang1"><<上一章</a>
+             {% endif %}
+
+             <a href=/read/{{id}} class="shangxiazhang1" id="read">返回目录</a>
+
+             {% if kneirong.has_next %}
+             <a href="/read/{{id}}/page={{kneirong.next_page_number}}" class="shangxiazhang1">下一章>></a>
+             {% endif %}
+         </ul>
+    </div>
+    </div>
+
+{%endblock body%}

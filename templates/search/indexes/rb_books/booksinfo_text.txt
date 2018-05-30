@@ -1,0 +1,3 @@
+{{object.btitle}}
+{{object.bjianjie}}
+{{object.bcontent}}

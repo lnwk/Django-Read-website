@@ -1,0 +1,41 @@
+{%extends 'rb_books/base.html'%}
+
+{% block list %}
+
+
+    <ul class="books_type_list clearfix">
+    {% if query %}
+    <h1>搜索结果如下：</h1>
+    {% for result in page.object_list %}
+        <li>
+            <a href="/{{result.object.id}}"><img src="/static/{{result.object.bpic}}"></a>
+            <h4><a href="/{{b.id}}">{{result.object.btitle}}</a></h4>
+            <a href="/result.object.bjianjie /"></a><br/>
+             {% empty %}
+        <p>啥也没找到</p>
+        {% endfor %}
+
+        </li>
+
+    </ul>
+
+    <div class="pagenation">
+        {% if bookList.has_previous %}
+        <a href="/search/list{{typeid}}_{{bookList.previous_page_number}}_{{sort}}">上一页</a>
+        {% endif %}
+
+        {%for pindex in pindexlist%}
+        <!--如果选择的是当前页，则标记为活动样式-->
+        {%if pindex == pageid%}
+        <a href="#" class="active">{{pindex}}</a>
+        {%else%}
+        <a href="/search/list{{typeid}}_{{pindex}}_{{sort}}">{{pindex}}</a>
+        {%endif%}
+        {%endfor%}
+        {% if bookList.has_next %}
+        <a href="/search/list{{typeid}}_{{bookList.next_page_number}}_{{sort}}">下一页></a>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
+{%endblock list%}

@@ -1,0 +1,61 @@
+{% extends 'rb_books/base.html'%}
+{% block head %}
+<script>
+ $(function(){
+   $('.add_cart').click(function () {
+       url = '/cart/add{{ b.id }}/';
+       $.get(url,function (data) {
+            $('#show_count').text(data.count)
+           console.log(data.count)
+       })
+   })
+     })
+</script>
+
+
+
+{% endblock head %}
+
+
+{% block detail %}
+	<div class="books_detail_con clearfix">
+		<div class="books_detail_pic fl"><img src="/static/{{b.bpic}}"></div>
+
+		<div class="books_detail_list fr">
+			<h3>{{b.btitle}}</h3>
+			<p>{{b.bjianjie}}</p>
+             <div class="operate_btn" >
+                    {% if request.session.user_name|default:'' != '' %}
+                        <a href=/read/{{b.id}} class="read_book" id="read">立即阅读</a>
+                    {% else %}
+                        <a href="/user/login/" class="read_book" id="read">立即阅读</a>
+                    {% endif %}
+                    {% if request.session.user_name|default:'' != '' %}
+                        <a href="javascript:;" class="add_cart" id="add_cart">收藏到书签</a>
+                    {% else %}
+                        <a href="/user/login/" class="add_cart" id="add_cart">收藏到书签</a>
+                    {% endif %}
+                </div>
+            </div>
+		</div>
+	</div>
+{% endblock detail%}
+
+{% block list %}
+		<div class="r_wrap fr clearfix">
+			<ul class="detail_tab clearfix">
+				<li class="active">书籍介绍</li>
+				<li></li>
+			</ul>
+
+			<div class="tab_content">
+				<dl>
+					<dt>书籍详情：</dt>
+					<dd>{{b.bcontent|safe}}</dd>
+				</dl>
+			</div>
+
+
+        </div>
+
+{% endblock list %}
